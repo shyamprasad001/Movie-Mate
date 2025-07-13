@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block start %}
+
+<link rel="stylesheet" href="{% static 'css/select_show.css' %}">
+
+<section class="show-section">
+  <div class="container">
+    <h2 class="heading">
+      Select Show Time for 
+      <span class="movie">{{ movie.movie_name }}</span> 
+      at <span class="theatre">{{ theatre.name }}</span>
+    </h2>
+
+    {% if shows %}
+      <div class="show-list">
+        {% for show in shows %}
+          <div class="show-card">
+            <div class="time">
+              {% if show.show_time %}
+                {{ show.show_time|date:"D, d M Y - h:i A" }}
+              {% else %}
+                <span class="text-warning">Not Available</span>
+              {% endif %}
+            </div>
+            <a href="{% url 'select_seats' show.uid %}" class="btn-select">Select Seats</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-shows">No shows available for this movie at this theatre.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

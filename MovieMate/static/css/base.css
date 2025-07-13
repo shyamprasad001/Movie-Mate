@@ -1,0 +1,57 @@
+:root {
+  --dark-bg: #090040;
+  --card-bg: #471396;
+  --accent: #B13BFF;
+  --highlight: #FFCC00;
+  --text: #f8f8f8;
+  --muted: #cfcfcf;
+}
+
+/* Base Background */
+body {
+  background-color: var(--dark-bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 70px;
+}
+
+/* Navbar Styling */
+.custom-navbar {
+  background-color: var(--card-bg);
+}
+
+.navbar-brand {
+  color: var(--highlight) !important;
+  font-size: 1.4rem;
+}
+
+.nav-link {
+  color: var(--text) !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--highlight) !important;
+}
+
+.btn-outline-warning {
+  border-color: var(--highlight);
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--highlight);
+  color: #000;
+}
+
+/* Page content spacing */
+.main-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.alert {
+  font-size: 0.95rem;
+}

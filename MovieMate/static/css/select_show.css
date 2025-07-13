@@ -1,0 +1,87 @@
+:root {
+  --dark-bg: #090040;
+  --primary: #471396;
+  --accent: #B13BFF;
+  --highlight: #FFCC00;
+  --text-light: #f2f2f2;
+  --muted: #b0b0b0;
+}
+
+body {
+  background-color: var(--dark-bg);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-light);
+}
+
+.show-section {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--highlight);
+  text-align: center;
+}
+
+.heading .movie {
+  color: var(--accent);
+}
+
+.heading .theatre {
+  color: var(--text-light);
+}
+
+.show-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.show-card {
+  background-color: var(--primary);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.show-card:hover {
+  transform: translateY(-4px);
+}
+
+.time {
+  font-size: 1rem;
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.btn-select {
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-select:hover {
+  background-color: #a12ae9;
+}
+
+.no-shows {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block start %}
+
+<link rel="stylesheet" href="{% static 'css/booking_history.css' %}">
+
+<section class="history-section">
+  <div class="container">
+    <h2 class="section-title">Your Bookings</h2>
+
+    {% if bookings %}
+      <div class="booking-list">
+        {% for booking in bookings %}
+          <div class="booking-card">
+            <div class="booking-header">
+              <h5 class="movie-name">{{ booking.show.movie.movie_name }}</h5>
+              <span class="booking-date">{{ booking.booked_at|default:booking.created_at|date:"d M Y, h:i A" }}</span>
+            </div>
+
+            <div class="booking-details">
+              <p><strong>Theatre:</strong> {{ booking.show.theatre.name }} ({{ booking.show.theatre.location }})</p>
+              <p><strong>Status:</strong>
+                {% if booking.paid_at %}
+                <span class="text-success">Paid on {{ booking.paid_at|date:"d M Y, h:i A" }}</span>
+                {% else %}
+                <span class="text-danger">Not Paid</span>
+                {% endif %}
+              </p>
+
+              <p><strong>Seats:</strong>
+                {% if booking.seats.all %}
+                  {% for seat in booking.seats.all %}
+                    <span class="seat-badge">{{ seat.seat_number }}</span>
+                  {% endfor %}
+                {% else %}
+                  <span class="text-muted">No seats selected</span>
+                {% endif %}
+              </p>
+
+              <p class="total"><strong>Total Paid:</strong> ₹{{ booking.total_price }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-bookings">You haven’t booked anything yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

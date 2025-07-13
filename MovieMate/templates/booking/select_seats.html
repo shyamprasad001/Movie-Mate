@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block start %}
+
+<link rel="stylesheet" href="{% static 'css/select_seats.css' %}">
+
+<section class="seat-section">
+  <div class="container">
+    <h2 class="heading">
+      Select Seats for <span class="highlight">{{ show.movie.movie_name }}</span>
+    </h2>
+
+    <p class="sub-info">
+      <strong>Theatre:</strong> {{ show.theatre.name }} <br>
+      <strong>Show Time:</strong>
+      {% if show.show_time %}
+        {{ show.show_time|date:"D, d M Y - h:i A" }}
+      {% else %}
+        <span class="text-danger">Unavailable</span>
+      {% endif %}
+    </p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="seats-grid">
+        {% if available_seats %}
+          {% for seat in available_seats %}
+            <label class="seat-box">
+              <input type="checkbox" name="seats" value="{{ seat.uid }}" class="seat-input">
+              <span class="seat-number">{{ seat.seat_number }}</span>
+            </label>
+          {% endfor %}
+        {% else %}
+          <p class="no-seats">No seats available for this show.</p>
+        {% endif %}
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn-confirm">Proceed to Payment</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.seat-input').forEach(input => {
+      input.addEventListener('change', function () {
+        this.closest('.seat-box').classList.toggle('selected', this.checked);
+      });
+    });
+  });
+</script>
+
+{% endblock %}

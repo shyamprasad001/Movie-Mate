@@ -1,0 +1,94 @@
+:root {
+  --bg: #090040;
+  --card: #471396;
+  --accent: #B13BFF;
+  --highlight: #FFCC00;
+  --text: #f4f4f4;
+  --muted: #a0a0a0;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+.history-section {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-card {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.movie-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--highlight);
+}
+
+.booking-date {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.booking-details p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.seat-badge {
+  background-color: var(--highlight);
+  color: #000;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 3px 8px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.total {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+.no-bookings {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--muted);
+}

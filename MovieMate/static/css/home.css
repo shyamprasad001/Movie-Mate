@@ -1,0 +1,104 @@
+:root {
+  --dark: #090040;
+  --primary: #471396;
+  --accent: #B13BFF;
+  --highlight: #FFCC00;
+  --text-light: #f2f2f2;
+  --muted: #c0c0c0;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--text-light);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+.home-section {
+  padding: 3rem 1rem;
+}
+
+.welcome-msg {
+  font-size: 1.2rem;
+  color: var(--highlight);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.movie-card {
+  background-color: var(--primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--accent);
+}
+
+.movie-details {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--highlight);
+  margin-bottom: 0.3rem;
+}
+
+.movie-category {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.movie-price {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.btn-book,
+.btn-login {
+  background-color: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 0.6rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.btn-book:hover,
+.btn-login:hover {
+  background-color: #a92aff;
+}
+
+.no-movies {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+}

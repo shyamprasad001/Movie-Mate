@@ -1,0 +1,97 @@
+:root {
+  --bg: #090040;
+  --container: #471396;
+  --accent: #B13BFF;
+  --highlight: #FFCC00;
+  --text: #f2f2f2;
+  --muted: #b0b0b0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.confirm-section {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background-color: var(--container);
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.page-title {
+  text-align: center;
+  color: var(--highlight);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+}
+
+.ticket-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.value {
+  font-weight: 500;
+  color: var(--text);
+  text-align: right;
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.seat-tag {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-left: 5px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.total .value {
+  color: var(--highlight);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.btn-confirm {
+  margin-top: 2rem;
+  padding: 0.8rem 2.5rem;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-confirm:hover {
+  background-color: #9c2cf0;
+}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block start %}
+
+<link rel="stylesheet" href="{% static 'css/confirm_booking.css' %}">
+
+<section class="confirm-section">
+  <div class="container">
+    <h2 class="page-title">Confirm Your Booking</h2>
+
+    <div class="ticket-summary">
+      <div class="detail-row">
+        <span class="label">Movie:</span>
+        <span class="value highlight">{{ ticket.show.movie.movie_name }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Theatre:</span>
+        <span class="value">{{ ticket.show.theatre.name }} - {{ ticket.show.theatre.location }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Show Time:</span>
+        <span class="value">
+          {% if ticket.show.show_time %}
+            {{ ticket.show.show_time|date:"D, d M Y - h:i A" }}
+          {% else %}
+            <span class="text-danger">Not available</span>
+          {% endif %}
+        </span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Seats:</span>
+        <span class="value">
+          {% for seat in ticket.seats.all %}
+            <span class="seat-tag">{{ seat.seat_number }}</span>
+          {% empty %}
+            <span class="text-warning">No seats selected</span>
+          {% endfor %}
+        </span>
+      </div>
+
+      <div class="detail-row total">
+        <span class="label">Total Price:</span>
+        <span class="value">₹{{ ticket.total_price }}</span>
+      </div>
+    </div>
+
+    <form method="POST" class="text-center mt-4">
+      {% csrf_token %}
+      <button type="submit" class="btn-confirm">Confirm Booking</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

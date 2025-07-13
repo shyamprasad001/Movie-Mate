@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block start %}
+
+<link rel="stylesheet" href="{% static 'css/select_theatre.css' %}">
+
+<section class="theatre-section">
+  <div class="container">
+    <h2 class="heading">Choose Theatre for: <span>{{ movie.movie_name }}</span></h2>
+
+    {% if theatres %}
+      <div class="theatre-grid">
+        {% for theatre in theatres %}
+          <div class="theatre-card">
+            <h4 class="theatre-name">{{ theatre.name }}</h4>
+            <p class="location">{{ theatre.location }}</p>
+            <a href="{% url 'select_show' movie.uid theatre.uid %}" class="btn-view">View Shows</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-theatres">No theatres are currently showing this movie.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}
